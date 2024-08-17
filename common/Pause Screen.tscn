@@ -11,15 +11,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ejrbk")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 2.0
 offset_bottom = 29.0
 scale = Vector2(575.58, 22.3797)
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.545098)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 1
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 1.001
+anchor_bottom = 1.002
+offset_top = 590.0
+offset_right = -0.1521
+offset_bottom = -0.296082
+placeholder_text = "type --help to get help."
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_right = 0.998
 anchor_bottom = 1.0
@@ -29,13 +39,3 @@ text = "Terminal (also known as the pause menu)
 -> type \"--help\" to see what commands you can do!
 "
 scroll_following = true
-
-[node name="TextEdit" type="TextEdit" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.001
-anchor_bottom = 1.002
-offset_top = 590.0
-offset_right = -0.1521
-offset_bottom = -0.296082
-placeholder_text = "type here:"

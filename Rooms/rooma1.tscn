@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://da23vyr1urx4j"]
+
+[ext_resource type="PackedScene" uid="uid://6mvlvkl4bi35" path="res://uncommon/Test.tscn" id="1_xfqix"]
+[ext_resource type="PackedScene" uid="uid://dc2xh1uoujrs0" path="res://common/box.tscn" id="2_iyukw"]
+
+[node name="Room a1" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_xfqix")]
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, -65536, 65536, 0, -65535, 65536, 0, -65534, 65536, 0, -65533, 65536, 0, -65532, 65536, 0, -65531, 65536, 0, -65530, 65536, 0, -65529, 65536, 0, -65528, 65536, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, -65527, 65536, 0, -65526, 65536, 0, -65525, 65536, 0, -65524, 65536, 0, -65523, 65536, 0, -262144, 65536, 0, -262143, 65536, 0, -262142, 65536, 0, -262141, 65536, 0, -262140, 65536, 0, -262139, 65536, 0, -262138, 65536, 0, -262137, 65536, 0, -262136, 65536, 0, -262135, 65536, 0, -262134, 65536, 0, -262133, 65536, 0, -262132, 65536, 0, -262131, 65536, 0)
+
+[node name="Box" parent="." instance=ExtResource("2_iyukw")]
+position = Vector2(561, -154)
+
+[node name="end" type="Node2D" parent="."]
+position = Vector2(1120, 0)

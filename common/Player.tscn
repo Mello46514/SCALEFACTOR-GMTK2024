@@ -234,6 +234,7 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="atk"]
 visible = false
 shape = SubResource("RectangleShape2D_rqpj3")
+disabled = true
 
 [node name="Timer" type="Timer" parent="atk"]
 one_shot = true

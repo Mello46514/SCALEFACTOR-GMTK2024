@@ -20,13 +20,6 @@ var lsnd:bool = false
 var cnatk:bool = false
 
 func _physics_process(delta):
-	
-	if Input.is_action_just_pressed("ESC"):
-		if Global.paused:
-			Global.paused = false
-		else:
-			Global.paused == true
-	
 	if Global.paused == false:
 		### movement
 		#handle x movementif not inpt_power.x == 0: 
@@ -39,7 +32,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("atk") and $atk/Timer.is_stopped():
 			velocity.x += 100 * prevdir
 			$atk.position.x = 85 * prevdir
-			$atk/Timer.start(.5)
+			$atk/Timer.start(.1)
 			var e = preload("res://common/pushparticles.tscn").instantiate()
 			e.emitting = true
 			e.position = $atk.position
@@ -80,6 +73,7 @@ func _physics_process(delta):
 		
 		### embed
 		##handle mechanics
+		
 		$instagrowbox.global_scale = Vector2(1,1)
 		$instagrowbox2.global_scale = Vector2(1,1)
 		$ableggrow.global_scale = Vector2(diff + 0.05,diff + 0.05)
@@ -126,11 +120,6 @@ func _physics_process(delta):
 		$texture/Sprite2D.skew = lerp($texture/Sprite2D.skew,(((-(velocity.x / 3000) * (clamp(velocity.y,-1,1))) / size)),Drag)
 		
 		$texture/Sprite2D.scale = lerp($texture/Sprite2D.scale,Vector2(1 - (((abs(stretch))) / 3), 1 + (((abs(stretch) / 2)))),Drag)
-		
-		#fight
-		
-		
-		
 		#finish
 		move_and_slide()
 	else:
