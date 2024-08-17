@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://conc0j3mmkrys"]
+[gd_scene load_steps=22 format=3 uid="uid://conc0j3mmkrys"]
 
 [ext_resource type="Script" path="res://common/player.gd" id="1_dmyud"]
 [ext_resource type="Texture2D" uid="uid://bmscwxwsjloxt" path="res://sprites/Player-Sheet.png" id="2_118jc"]
@@ -7,9 +7,12 @@
 [ext_resource type="AudioStream" uid="uid://d25sk056wnwxa" path="res://sounds/grow.wav" id="5_xkkfl"]
 [ext_resource type="AudioStream" uid="uid://blijdx14b0ywu" path="res://sounds/stemp.wav" id="6_jvv7f"]
 [ext_resource type="AudioStream" uid="uid://dxan3wm156p66" path="res://sounds/smack.wav" id="7_03tw3"]
+[ext_resource type="Texture2D" uid="uid://c6v47mgimomkw" path="res://sprites/progress back.png" id="8_hc816"]
+[ext_resource type="Texture2D" uid="uid://bqse022tikhv" path="res://sprites/progress bar.png" id="9_1eoor"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_unwvc"]
-size = Vector2(31.685, 126)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jkfuo"]
+radius = 18.0
+height = 132.0
 
 [sub_resource type="Animation" id="Animation_vjp74"]
 length = 0.001
@@ -121,11 +124,12 @@ _data = {
 "walk": SubResource("Animation_k16qm")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyc7f"]
-size = Vector2(30, 130)
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_v2aos"]
+length = 67.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_priqh"]
-size = Vector2(30.485, 75)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_myuyn"]
+radius = 15.0
+height = 132.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etb5q"]
 size = Vector2(31.46, 384)
@@ -143,8 +147,8 @@ up_direction = Vector2(0, 1)
 script = ExtResource("1_dmyud")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5.96046e-08, -63)
-shape = SubResource("RectangleShape2D_unwvc")
+position = Vector2(0, -66)
+shape = SubResource("CapsuleShape2D_jkfuo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(5.96046e-08, -64)
@@ -163,20 +167,21 @@ one_shot = true
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ableggrow"]
-position = Vector2(0, -65)
-shape = SubResource("RectangleShape2D_kyc7f")
-debug_color = Color(0.905603, 0.000131108, 0.746078, 0.42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ableggrow"]
+position = Vector2(0, -67)
+rotation = -3.14159
+shape = SubResource("SeparationRayShape2D_v2aos")
+debug_color = Color(0.867211, 0.000548113, 0.857363, 0.42)
 
 [node name="floor" type="Area2D" parent="."]
 position = Vector2(5.96046e-08, -64)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-position = Vector2(0, 27.5)
-shape = SubResource("RectangleShape2D_priqh")
-debug_color = Color(0.740169, 0.45762, 0.253658, 0.42)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="floor"]
+position = Vector2(-5.96046e-08, -1)
+shape = SubResource("CapsuleShape2D_myuyn")
+debug_color = Color(0.63512, 0.527284, 0, 0.42)
 
 [node name="instagrowbox" type="Area2D" parent="."]
 collision_layer = 2
@@ -229,11 +234,28 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="atk"]
-visible = false
 shape = SubResource("RectangleShape2D_rqpj3")
 disabled = true
 
 [node name="Timer" type="Timer" parent="atk"]
 one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -184.0
+offset_right = 148.0
+grow_vertical = 0
+scale = Vector2(5.215, 5.215)
+min_value = 0.5
+max_value = 3.0
+step = 0.01
+value = 0.5
+fill_mode = 3
+texture_under = ExtResource("8_hc816")
+texture_progress = ExtResource("9_1eoor")
 
 [connection signal="timeout" from="atk/Timer" to="." method="_on_timer_timeout"]

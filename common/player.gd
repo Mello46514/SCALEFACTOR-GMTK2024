@@ -20,6 +20,7 @@ var lsnd:bool = false
 var cnatk:bool = false
 
 func _physics_process(delta):
+	$CanvasLayer/TextureProgressBar.value = diff
 	if Global.paused == false:
 		### movement
 		#handle x movementif not inpt_power.x == 0: 
@@ -39,9 +40,6 @@ func _physics_process(delta):
 			add_child(e)
 			$atk/CollisionShape2D.disabled = false
 			$smack.play()
-		else:
-			$atk.position.x = 0
-			# atk
 		anim()
 		velocity.x += (inpt_power.x * (SPEED * (size * 6))) * delta
 		velocity.x = clamp(lerp(velocity.x,0.0,Drag / size),-450 - (size * 100),450 + (size * 100))
@@ -51,10 +49,10 @@ func _physics_process(delta):
 		#handle y movement
 		if $floor.has_overlapping_bodies():
 			$CTime.start(0.2)
-			if lsnd:
+			if lsnd and velocity.y >= 0:
 				lsnd = false
 				$land.play()
-			if velocity.y <= 0:
+			if velocity.y >= 0:
 				velocity.y = 0
 		else:
 			velocity.y += (GRAV * grav_mult) * delta
@@ -77,12 +75,12 @@ func _physics_process(delta):
 		$instagrowbox.global_scale = Vector2(1,1)
 		$instagrowbox2.global_scale = Vector2(1,1)
 		$ableggrow.global_scale = Vector2(diff + 0.05,diff + 0.05)
-		if not $ableggrow.has_overlapping_bodies():
+		if not $ableggrow.has_overlapping_bodies() or  inpt_power.y == 1:
 			snd = true
 			speed_mult = diff
 			inpt_power.y = Input.get_axis("up","down")
 			diff -= (inpt_power.y * SCALE_PWR)
-		if $ableggrow.has_overlapping_bodies():
+		if $ableggrow.has_overlapping_bodies() and inpt_power.y == -1:
 			snd = false
 			diff -= 0.001
 		diff = clamp(diff,.5,3)

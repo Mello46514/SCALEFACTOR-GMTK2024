@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_audio_stream_player_2d_finished() -> void:
-	get_tree().queue_delete(self)
+	get_tree().queue_delete(get_parent())
