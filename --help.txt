@@ -1,0 +1,14 @@
+formatted like so:
+- command 'sub-commands' "description"
+
+
+
+- --help "you just used it."
+
+- --quit 'desktop' "quits the game, if you say "desktop" afterwards, you quit to desktop"
+
+- --resume "exit's the terminal (pasue menu)"
+
+- --options '-help' "its the options, but you do need its own help menu"
+
+- *insert entire bee movie script* "does nothing"

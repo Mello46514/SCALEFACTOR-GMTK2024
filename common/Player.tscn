@@ -1,14 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://conc0j3mmkrys"]
+[gd_scene load_steps=20 format=3 uid="uid://conc0j3mmkrys"]
 
 [ext_resource type="Script" path="res://common/player.gd" id="1_dmyud"]
 [ext_resource type="Texture2D" uid="uid://bmscwxwsjloxt" path="res://sprites/Player-Sheet.png" id="2_118jc"]
-[ext_resource type="AudioStream" uid="uid://blijdx14b0ywu" path="res://sounds/stemp.wav" id="3_pmoq7"]
-[ext_resource type="AudioStream" uid="uid://c6y7666ypmt5f" path="res://sounds/jump.wav" id="4_62jq5"]
-[ext_resource type="AudioStream" uid="uid://bd0aw8ktqkl2l" path="res://sounds/hiyglfloor.wav" id="5_c7lq2"]
-[ext_resource type="AudioStream" uid="uid://d25sk056wnwxa" path="res://sounds/grow.wav" id="6_syeat"]
+[ext_resource type="AudioStream" uid="uid://c6y7666ypmt5f" path="res://sounds/jump.wav" id="3_fpoj2"]
+[ext_resource type="AudioStream" uid="uid://bd0aw8ktqkl2l" path="res://sounds/hiyglfloor.wav" id="4_5l3po"]
+[ext_resource type="AudioStream" uid="uid://d25sk056wnwxa" path="res://sounds/grow.wav" id="5_xkkfl"]
+[ext_resource type="AudioStream" uid="uid://blijdx14b0ywu" path="res://sounds/stemp.wav" id="6_jvv7f"]
+[ext_resource type="AudioStream" uid="uid://dxan3wm156p66" path="res://sounds/smack.wav" id="7_03tw3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unwvc"]
-size = Vector2(83.8, 128)
+size = Vector2(31.685, 126)
 
 [sub_resource type="Animation" id="Animation_vjp74"]
 length = 0.001
@@ -86,7 +87,6 @@ tracks/0/keys = {
 resource_name = "walk"
 length = 0.40001
 loop_mode = 1
-step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -125,22 +125,30 @@ _data = {
 size = Vector2(70, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_priqh"]
-size = Vector2(20, 75)
+size = Vector2(30.485, 75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etb5q"]
 size = Vector2(252, 384)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53fdu"]
+size = Vector2(84.805, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqpj3"]
+size = Vector2(84, 128)
+
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 129
+collision_mask = 129
 up_direction = Vector2(0, 1)
 script = ExtResource("1_dmyud")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5.96046e-08, -64)
+position = Vector2(5.96046e-08, -63)
 shape = SubResource("RectangleShape2D_unwvc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(5.96046e-08, -64)
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -156,6 +164,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ableggrow"]
+visible = false
 position = Vector2(5.96046e-08, -64)
 shape = SubResource("RectangleShape2D_kyc7f")
 debug_color = Color(0.905603, 0.000131108, 0.746078, 0.42)
@@ -175,8 +184,18 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="instagrowbox"]
+visible = false
 position = Vector2(0, -192)
 shape = SubResource("RectangleShape2D_etb5q")
+
+[node name="instagrowbox2" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="instagrowbox2"]
+visible = false
+position = Vector2(0, -64.5)
+shape = SubResource("RectangleShape2D_53fdu")
 
 [node name="texture" type="Node2D" parent="."]
 scale = Vector2(5.24, 5.24)
@@ -186,20 +205,37 @@ texture = ExtResource("2_118jc")
 offset = Vector2(0, -11)
 hframes = 3
 
-[node name="step" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(5.96046e-08, -64)
-stream = ExtResource("3_pmoq7")
-
 [node name="jump" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(5.96046e-08, -64)
-stream = ExtResource("4_62jq5")
+stream = ExtResource("3_fpoj2")
 
 [node name="land" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(5.96046e-08, -64)
-stream = ExtResource("5_c7lq2")
+stream = ExtResource("4_5l3po")
+autoplay = true
 
 [node name="grow" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_syeat")
-pitch_scale = 0.5
+position = Vector2(5.96046e-08, -64)
+stream = ExtResource("5_xkkfl")
 
-[connection signal="body_entered" from="floor" to="." method="_on_floor_body_entered"]
+[node name="step" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(5.96046e-08, -64)
+stream = ExtResource("6_jvv7f")
+
+[node name="smack" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 2)
+stream = ExtResource("7_03tw3")
+
+[node name="atk" type="Area2D" parent="."]
+position = Vector2(85, -64)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atk"]
+visible = false
+shape = SubResource("RectangleShape2D_rqpj3")
+
+[node name="Timer" type="Timer" parent="atk"]
+one_shot = true
+
+[connection signal="timeout" from="atk/Timer" to="." method="_on_timer_timeout"]

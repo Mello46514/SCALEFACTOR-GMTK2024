@@ -1,0 +1,12 @@
+
+formatted like so:
+-sub_commmand (suffix) "description"
+make shure to type "options" beforehand!
+
+-sound (int) "changes the sound (from 0 to 100)"
+
+-music (int) "changes the music (from 0 to 100)"
+
+-controls "shows the controls (you cant change them :( )"
+
+-fullscreen (bool) "enables fullscreen"

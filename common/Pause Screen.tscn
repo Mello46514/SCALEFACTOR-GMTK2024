@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://rgputrvkcwq2"]
+
+[ext_resource type="Script" path="res://common/terminal.gd" id="1_ejrbk"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ejrbk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 2.0
+offset_bottom = 29.0
+scale = Vector2(575.58, 22.3797)
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_right = 0.303955
+offset_bottom = -59.0
+text = "Terminal (also known as the pause menu)
+-> type \"--help\" to see what commands you can do!
+"
+scroll_following = true
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.001
+anchor_bottom = 1.002
+offset_top = 590.0
+offset_right = -0.1521
+offset_bottom = -0.296082
+placeholder_text = "type here:"

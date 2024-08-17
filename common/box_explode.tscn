@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://b7et1tmheci5n"]
+
+[ext_resource type="Texture2D" uid="uid://d3jvn707dfod7" path="res://sprites/icon.svg" id="1_p8ua3"]
+[ext_resource type="Script" path="res://common/box_explode.gd" id="2_ufblt"]
+[ext_resource type="AudioStream" uid="uid://c7qcnc82cgot7" path="res://sounds/boom.wav" id="2_uk4rj"]
+
+[sub_resource type="Gradient" id="Gradient_b454a"]
+offsets = PackedFloat32Array(0.336066, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1r8pd"]
+gradient = SubResource("Gradient_b454a")
+
+[sub_resource type="Curve" id="Curve_qrv6m"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.88, 56.044), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_h6iqu"]
+curve = SubResource("Curve_qrv6m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mu0ip"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 13.94
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 446.23
+initial_velocity_max = 446.23
+angular_velocity_min = -441.29
+angular_velocity_max = 7.73998
+gravity = Vector3(0, 0, 0)
+damping_min = 97.849
+damping_max = 100.0
+damping_curve = SubResource("CurveTexture_h6iqu")
+scale_min = 0.2
+scale_max = 0.25
+color_ramp = SubResource("GradientTexture1D_1r8pd")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[node name="BoxExplode" type="GPUParticles2D"]
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_mu0ip")
+texture = ExtResource("1_p8ua3")
+one_shot = true
+explosiveness = 1.0
+script = ExtResource("2_ufblt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_uk4rj")
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

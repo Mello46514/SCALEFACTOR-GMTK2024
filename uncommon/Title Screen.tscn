@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0xp5fu2aw3r0"]
+
+[ext_resource type="Script" path="res://uncommon/title_screen.gd" id="1_7y6ev"]
+[ext_resource type="Texture2D" uid="uid://b4rrp1lou54j4" path="res://sprites/SCALE FACTOR.png" id="2_ofoo8"]
+[ext_resource type="Texture2D" uid="uid://bsxqnq5rrpk3f" path="res://sprites/shadow.png" id="3_bugrf"]
+
+[node name="Title Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7y6ev")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(598, 209)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_ofoo8")
+
+[node name="Shadow" type="Sprite2D" parent="Control"]
+position = Vector2(565, 207)
+scale = Vector2(0.189796, 0.189796)
+texture = ExtResource("3_bugrf")
+region_enabled = true
+region_rect = Rect2(0, 0, 3478.67, 2046)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 463.0
+offset_right = 670.0
+offset_bottom = 568.0
+theme_override_font_sizes/font_size = 71
+text = "Start"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
