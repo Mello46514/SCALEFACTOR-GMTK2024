@@ -122,16 +122,16 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyc7f"]
-size = Vector2(70, 128)
+size = Vector2(30, 130)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_priqh"]
 size = Vector2(30.485, 75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etb5q"]
-size = Vector2(252, 384)
+size = Vector2(31.46, 384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53fdu"]
-size = Vector2(84.805, 129)
+size = Vector2(30.92, 129)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqpj3"]
 size = Vector2(84, 128)
@@ -164,8 +164,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ableggrow"]
-visible = false
-position = Vector2(5.96046e-08, -64)
+position = Vector2(0, -65)
 shape = SubResource("RectangleShape2D_kyc7f")
 debug_color = Color(0.905603, 0.000131108, 0.746078, 0.42)
 
@@ -184,7 +183,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="instagrowbox"]
-visible = false
 position = Vector2(0, -192)
 shape = SubResource("RectangleShape2D_etb5q")
 
@@ -193,7 +191,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="instagrowbox2"]
-visible = false
 position = Vector2(0, -64.5)
 shape = SubResource("RectangleShape2D_53fdu")
 

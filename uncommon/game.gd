@@ -18,11 +18,12 @@ func _process(delta: float) -> void:
 func add_room(hash):
 	var a = rooms[hash].instantiate()
 	a.position = offset
-	offset += a.get_child(get_child(0).get_child_count() - 1).position
+	if not hash == 0:
+		offset += a.get_child(2).position
 	get_child(0).add_child(a)
 
 func add_floor():
-	for a in range(randi_range(15,25)):
+	for b in range(randi_range(15,25)):
 		add_room(randi_range(1,2))
 	add_room(0)
 	
