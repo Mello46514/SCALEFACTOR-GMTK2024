@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7sxyj0iiev63"]
+
+[ext_resource type="PackedScene" uid="uid://6mvlvkl4bi35" path="res://uncommon/tiles.tscn" id="1_1rn1v"]
+[ext_resource type="PackedScene" uid="uid://dc2xh1uoujrs0" path="res://common/Creature of steel.tscn" id="2_qwdag"]
+[ext_resource type="Texture2D" uid="uid://b7pam4adeyfud" path="res://sprites/Light.tres" id="3_6e2jd"]
+
+[node name="rooma7" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_1rn1v")]
+layer_0/tile_data = PackedInt32Array(0, 1, 1, 1, 1, 1, 2, 1, 1, 3, 1, 1, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -262144, 1, 1, -262143, 1, 1, -262142, 1, 1, -262141, 1, 1, -65532, 65537, 0, 4, 1, 1, 65540, 1, 1, 131076, 1, 1, 196612, 1, 1, 262148, 1, 1, -65530, 1, 1, 6, 1, 1, 65542, 1, 1, 131078, 1, 1, 196614, 1, 1, 262150, 1, 1, -131066, 1, 1, -196602, 1, 1, -262138, 1, 1, -327674, 1, 1, -393210, 1, 1, -458746, 1, 1, -524282, 1, 1, -589818, 1, 1, -655354, 1, 1, -720890, 1, 1, -786426, 1, 1, -851962, 1, 1, -917498, 1, 1, -983034, 1, 1, -1048570, 1, 1, -1048571, 1, 1, -1048572, 1, 1, -1048573, 1, 1, -983037, 1, 1, -917501, 1, 1, -851965, 1, 1, -786429, 1, 1, -720893, 1, 1, -655357, 1, 1, -589821, 1, 1, -524285, 1, 1, -458749, 1, 1, -393213, 1, 1, -327677, 1, 1, 327684, 1, 1, 393220, 1, 1, 458756, 1, 1, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 262151, 1, 1, 262152, 1, 1, 524292, 1, 1, 524293, 1, 1, 524294, 1, 1, 524295, 1, 1, 524296, 1, 1, 458760, 1, 0, -131071, 65537, 2, -196607, 65537, 2, -196608, 65537, 2, -131072, 65537, 2, -196606, 65537, 2, -131070, 65537, 2, -131069, 65537, 2, -196605, 65537, 2, -196604, 65537, 2, -262140, 65537, 2, -327676, 65537, 2, -393212, 65537, 2, -458748, 65537, 2, -524284, 65537, 2, -589820, 65537, 2, -655356, 65537, 2, -720892, 65537, 2, -786428, 65537, 2, -851964, 65537, 2, -917500, 65537, 2, -983036, 65537, 2, -983035, 65537, 2, -917499, 65537, 2, -851963, 65537, 2, -786427, 65537, 2, -720891, 65537, 2, -655355, 65537, 2, -589819, 65537, 2, -524283, 65537, 2, -458747, 65537, 2, -393211, 65537, 2, -327675, 65537, 2, -262139, 65537, 2, -196603, 65537, 2, -131067, 65537, 2, -131068, 65537, 2, -65531, 65537, 2, 5, 65537, 2, 65541, 65537, 2, 131077, 65537, 2, 196613, 65537, 2, 262149, 65537, 2, 327685, 65537, 2, 393221, 65537, 2, 393222, 65537, 2, 327686, 65537, 2, 327687, 65537, 2, 393223, 65537, 2, 393224, 65537, 2, 327688, 65537, 2)
+
+[node name="items" type="Node2D" parent="."]
+scale = Vector2(5, 5)
+
+[node name="Box" parent="items" instance=ExtResource("2_qwdag")]
+position = Vector2(80.4, -30.8)
+scale = Vector2(0.2, 0.2)
+
+[node name="Box2" parent="items" instance=ExtResource("2_qwdag")]
+position = Vector2(80.6, -56.8)
+scale = Vector2(0.2, 0.2)
+
+[node name="Box3" parent="items" instance=ExtResource("2_qwdag")]
+position = Vector2(80.4, -83.8)
+scale = Vector2(0.2, 0.2)
+
+[node name="Box4" parent="items" instance=ExtResource("2_qwdag")]
+position = Vector2(81, -110.2)
+scale = Vector2(0.2, 0.2)
+
+[node name="Box5" parent="items" instance=ExtResource("2_qwdag")]
+position = Vector2(81, -137.4)
+scale = Vector2(0.2, 0.2)
+
+[node name="Box6" parent="items" instance=ExtResource("2_qwdag")]
+position = Vector2(81, -165)
+scale = Vector2(0.2, 0.2)
+
+[node name="Box7" parent="items" instance=ExtResource("2_qwdag")]
+position = Vector2(81.6, -194.2)
+scale = Vector2(0.2, 0.2)
+
+[node name="Box8" parent="items" instance=ExtResource("2_qwdag")]
+position = Vector2(81.2, -222.2)
+scale = Vector2(0.2, 0.2)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(720, 648)
+scale = Vector2(5, 5)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(147, -168)
+scale = Vector2(3.84375, 3.84375)
+texture = ExtResource("3_6e2jd")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(589, 496)
+scale = Vector2(3.84375, 3.84375)
+texture = ExtResource("3_6e2jd")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(419, -102)
+scale = Vector2(9.56215, 52.6196)
+texture = ExtResource("3_6e2jd")

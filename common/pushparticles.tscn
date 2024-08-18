@@ -1,32 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://conpam23u2863"]
+[gd_scene load_steps=3 format=3 uid="uid://conpam23u2863"]
 
-[sub_resource type="Gradient" id="Gradient_250nc"]
-offsets = PackedFloat32Array(0.0409836, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.564706, 1, 1, 1)
+[ext_resource type="Texture2D" uid="uid://dre4stujyr3q2" path="res://pushparticles.tres" id="1_h0uir"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_cutcb"]
-gradient = SubResource("Gradient_250nc")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tig03"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bak62"]
 lifetime_randomness = 0.7
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(1, 84, 84)
-inherit_velocity_ratio = 1.0
+emission_box_extents = Vector3(1, 84, 0)
+inherit_velocity_ratio = 0.012
 direction = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
-scale_max = 5.0
-color_ramp = SubResource("GradientTexture1D_cutcb")
-turbulence_enabled = true
-turbulence_influence_max = 0.272
-collision_mode = 2
+scale_min = 2.0
+scale_max = 7.0
+color_ramp = ExtResource("1_h0uir")
+collision_mode = 1
+collision_friction = 0.75
+collision_bounce = 0.15
+collision_use_scale = true
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
 emitting = false
 amount = 45
-process_material = SubResource("ParticleProcessMaterial_tig03")
+process_material = SubResource("ParticleProcessMaterial_bak62")
 one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 fixed_fps = 0
-trail_enabled = true

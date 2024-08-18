@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://da23vyr1urx4j"]
+[gd_scene load_steps=4 format=3 uid="uid://da23vyr1urx4j"]
 
-[ext_resource type="PackedScene" uid="uid://6mvlvkl4bi35" path="res://uncommon/Test.tscn" id="1_xfqix"]
-[ext_resource type="PackedScene" uid="uid://dc2xh1uoujrs0" path="res://common/box.tscn" id="2_iyukw"]
+[ext_resource type="PackedScene" uid="uid://6mvlvkl4bi35" path="res://uncommon/tiles.tscn" id="1_xfqix"]
+[ext_resource type="PackedScene" uid="uid://dc2xh1uoujrs0" path="res://common/Creature of steel.tscn" id="2_iyukw"]
+[ext_resource type="Texture2D" uid="uid://b7pam4adeyfud" path="res://sprites/Light.tres" id="3_tk75v"]
 
 [node name="Room a1" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_xfqix")]
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, -65536, 65536, 0, -65535, 65536, 0, -65534, 65536, 0, -65533, 65536, 0, -65532, 65536, 0, -65531, 65536, 0, -65530, 65536, 0, -65529, 65536, 0, -65528, 65536, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, -65527, 65536, 0, -65526, 65536, 0, -65525, 65536, 0, -65524, 65536, 0, -65523, 65536, 0, -262144, 65536, 0, -262143, 65536, 0, -262142, 65536, 0, -262141, 65536, 0, -262140, 65536, 0, -262139, 65536, 0, -262138, 65536, 0, -262137, 65536, 0, -262136, 65536, 0, -262135, 65536, 0, -262134, 65536, 0, -262133, 65536, 0, -262132, 65536, 0, -262131, 65536, 0)
+layer_0/tile_data = PackedInt32Array(0, 1, 1, 1, 1, 1, 2, 1, 1, 3, 1, 1, 4, 1, 1, 5, 1, 1, 6, 1, 1, 7, 1, 1, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65529, 1, 0, -65528, 1, 0, 8, 1, 1, 9, 1, 1, 10, 1, 1, 11, 1, 1, 12, 1, 1, 13, 1, 1, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0, -65524, 1, 0, -65523, 1, 0, -262144, 1, 1, -262143, 1, 1, -262142, 1, 1, -262141, 1, 1, -262140, 1, 1, -262139, 1, 1, -262138, 1, 1, -262137, 1, 1, -262136, 1, 1, -262135, 1, 1, -262134, 1, 1, -262133, 1, 1, -262132, 1, 1, -262131, 1, 1, -196604, 131073, 3, -131068, 1, 3, -196603, 131073, 3, -131067, 1, 3, -196602, 131073, 3, -131066, 1, 3, -196601, 131073, 3, -131065, 1, 3, -196600, 131073, 3, -131064, 1, 3, -196599, 131073, 3, -131063, 1, 3, -196598, 1, 2, -131062, 1, 2, -196597, 1, 2, -131061, 1, 2, -131060, 1, 2, -196595, 1, 2, -131059, 1, 2, -196596, 1, 2, -196605, 1, 2, -131069, 1, 2, -131070, 1, 2, -131071, 1, 2, -196607, 1, 2, -196606, 1, 2, -131072, 1, 2, -196608, 1, 2)
 
 [node name="Box" parent="." instance=ExtResource("2_iyukw")]
 position = Vector2(561, -154)
 
 [node name="end" type="Node2D" parent="."]
 position = Vector2(1120, 0)
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(552, -166)
+scale = Vector2(19.25, 4.21875)
+energy = 3.1
+texture = ExtResource("3_tk75v")

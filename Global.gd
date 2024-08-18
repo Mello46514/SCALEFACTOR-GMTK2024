@@ -8,3 +8,8 @@ extends Node
 
 # variables
 @export var paused:bool = false
+
+#settings
+var sound = 100
+var music = 100
+var Fullscreen = 0

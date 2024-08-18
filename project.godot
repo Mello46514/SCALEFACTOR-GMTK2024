@@ -11,12 +11,16 @@ config_version=5
 [application]
 
 config/name="gmtk2024"
+config/description="my game for gmtk 2024"
+config/version="Pre-GMTK_BFin - 05"
 run/main_scene="res://uncommon/Title Screen.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Save"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0.176419, 0.176419, 0.176419, 1)
 boot_splash/image="res://sprites/Scale Factor LOGO.png"
 boot_splash/use_filter=false
-config/icon="res://sprites/icon.svg"
+config/icon="res://sprites/Test_Tiles.png"
 boot_splash/minimum_display_time=1000
 
 [autoload]
@@ -26,6 +30,7 @@ Global="*res://Global.gd"
 [display]
 
 window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
 
 [input]
 
@@ -90,3 +95,4 @@ interact={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

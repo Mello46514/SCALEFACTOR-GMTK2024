@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://b7et1tmheci5n"]
 
-[ext_resource type="Texture2D" uid="uid://d3jvn707dfod7" path="res://sprites/icon.svg" id="1_p8ua3"]
+[ext_resource type="Texture2D" uid="uid://mk12lhypnhue" path="res://sprites/crate shard.png" id="1_07hqb"]
 [ext_resource type="Script" path="res://common/box_explode.gd" id="2_ufblt"]
 [ext_resource type="AudioStream" uid="uid://c7qcnc82cgot7" path="res://sounds/boom.wav" id="2_uk4rj"]
 
 [sub_resource type="Gradient" id="Gradient_b454a"]
-offsets = PackedFloat32Array(0.336066, 1)
+offsets = PackedFloat32Array(0.0718232, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_1r8pd"]
@@ -35,8 +35,7 @@ gravity = Vector3(0, 0, 0)
 damping_min = 97.849
 damping_max = 100.0
 damping_curve = SubResource("CurveTexture_h6iqu")
-scale_min = 0.2
-scale_max = 0.25
+scale_max = 1.5
 color_ramp = SubResource("GradientTexture1D_1r8pd")
 collision_mode = 1
 collision_friction = 0.0
@@ -46,7 +45,7 @@ collision_bounce = 0.0
 emitting = false
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_mu0ip")
-texture = ExtResource("1_p8ua3")
+texture = ExtResource("1_07hqb")
 one_shot = true
 explosiveness = 1.0
 script = ExtResource("2_ufblt")

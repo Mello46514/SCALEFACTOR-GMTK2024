@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://csdsbylfh0bb"]
 
 [ext_resource type="Script" path="res://uncommon/game.gd" id="1_uv0m1"]
-[ext_resource type="PackedScene" uid="uid://6mvlvkl4bi35" path="res://uncommon/Test.tscn" id="1_yl8tr"]
+[ext_resource type="PackedScene" uid="uid://6mvlvkl4bi35" path="res://uncommon/tiles.tscn" id="1_yl8tr"]
 [ext_resource type="PackedScene" uid="uid://conc0j3mmkrys" path="res://common/Player.tscn" id="2_2cksb"]
 
 [node name="Scene" type="Node2D"]
@@ -10,8 +10,11 @@ script = ExtResource("1_uv0m1")
 [node name="Level gen" type="Node2D" parent="."]
 position = Vector2(240, 80)
 
+[node name="TileMap" parent="." instance=ExtResource("1_yl8tr")]
+layer_0/tile_data = PackedInt32Array(0, 1, 1, 1, 1, 0, 2, 1, 0, 65538, 1, 1, 65537, 1, 1, 65536, 1, 1, -65536, 1, 1, -131072, 1, 1, -196608, 1, 1, -196607, 1, 1, -196606, 1, 1, -131070, 1, 2, -65534, 1, 2, -65535, 1, 2, -131071, 1, 2)
+
 [node name="Player" parent="." instance=ExtResource("2_2cksb")]
 position = Vector2(127, 0)
 
-[node name="TileMap" parent="." instance=ExtResource("1_yl8tr")]
-layer_0/tile_data = PackedInt32Array(0, 65536, 0, 1, 65536, 0, 2, 65536, 0, 65538, 0, 0, 65537, 0, 0, 65536, 0, 0, -65536, 65536, 0, -131072, 65536, 0, -196608, 65536, 0, -196607, 65536, 0, -196606, 65536, 0)
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)

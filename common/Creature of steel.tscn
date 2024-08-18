@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dc2xh1uoujrs0"]
+[gd_scene load_steps=6 format=3 uid="uid://dc2xh1uoujrs0"]
 
 [ext_resource type="Script" path="res://common/box.gd" id="1_2vivk"]
-[ext_resource type="Texture2D" uid="uid://d3jvn707dfod7" path="res://sprites/icon.svg" id="1_vpqxv"]
+[ext_resource type="Texture2D" uid="uid://b24eeoeko1fbu" path="res://sprites/Crate2.png" id="2_2g166"]
+[ext_resource type="AudioStream" uid="uid://nbkvctrppsxx" path="res://sounds/ding.wav" id="3_eitgc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23784"]
 size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bwwg"]
+size = Vector2(102.4, 102.4)
 
 [node name="Box" type="RigidBody2D"]
 collision_layer = 3
@@ -16,12 +20,15 @@ script = ExtResource("1_2vivk")
 shape = SubResource("RectangleShape2D_23784")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_vpqxv")
+scale = Vector2(4, 4)
+texture = ExtResource("2_2g166")
 
 [node name="Kill" type="Area2D" parent="."]
-scale = Vector2(0.8, 0.8)
 collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kill"]
-shape = SubResource("RectangleShape2D_23784")
+shape = SubResource("RectangleShape2D_8bwwg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_eitgc")

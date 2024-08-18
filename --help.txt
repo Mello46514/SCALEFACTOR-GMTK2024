@@ -9,6 +9,6 @@ formatted like so:
 
 - --resume "exit's the terminal (pasue menu)"
 
-- --options '-help' "its the options, but you do need its own help menu"
+- --options '-h' "its the options, but it needs its own help menu"
 
 - *insert entire bee movie script* "does nothing"

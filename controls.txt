@@ -1,0 +1,12 @@
+Format:
+- button (action)
+
+- c/k (attack)
+
+- left and right / "a" and "d" (walk left/right)
+
+- up and down / "w" and "s" (scale up/down)
+
+- space (jump)
+
+- e/x (interact)

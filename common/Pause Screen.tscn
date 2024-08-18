@@ -1,6 +1,94 @@
-[gd_scene load_steps=2 format=3 uid="uid://rgputrvkcwq2"]
+[gd_scene load_steps=6 format=3 uid="uid://rgputrvkcwq2"]
 
 [ext_resource type="Script" path="res://common/terminal.gd" id="1_ejrbk"]
+
+[sub_resource type="Animation" id="Animation_2p7sw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:kill")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_nd3yj"]
+resource_name = "leave"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.148651, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -650)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:kill")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_o23h4"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.233258, 1),
+"update": 0,
+"values": [Vector2(0, -650), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:kill")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8kxhc"]
+_data = {
+"RESET": SubResource("Animation_2p7sw"),
+"leave": SubResource("Animation_nd3yj"),
+"start": SubResource("Animation_o23h4")
+}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,28 +102,39 @@ script = ExtResource("1_ejrbk")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="Node2D" type="Node2D" parent="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Node2D"]
 offset_right = 2.0
 offset_bottom = 29.0
 scale = Vector2(575.58, 22.3797)
 color = Color(0, 0, 0, 0.545098)
 
-[node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/Node2D"]
 anchors_preset = -1
 anchor_right = 1.001
 anchor_bottom = 1.002
 offset_top = 590.0
-offset_right = -0.1521
-offset_bottom = -0.296082
+offset_right = 1153.0
+offset_bottom = 649.0
 placeholder_text = "type --help to get help."
+context_menu_enabled = false
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_right = 0.998
-anchor_bottom = 1.0
-offset_right = 0.303955
-offset_bottom = -59.0
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Node2D"]
+offset_right = 1150.0
+offset_bottom = 589.0
 text = "Terminal (also known as the pause menu)
 -> type \"--help\" to see what commands you can do!
 "
 scroll_following = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8kxhc")
+}
+autoplay = "start"
+
+[connection signal="text_changed" from="CanvasLayer/Node2D/TextEdit" to="." method="_on_text_edit_text_changed"]

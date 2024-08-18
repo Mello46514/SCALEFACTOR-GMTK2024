@@ -8,8 +8,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if $Kill.has_overlapping_areas() and alive:
+func _process(_delta: float) -> void:
+	if $Kill.has_overlapping_areas() and alive and Global.Player_size >= 1:
 		alive = false
 		var a = preload("res://common/box_explode.tscn").instantiate()
 		a.emitting = true
@@ -17,3 +17,5 @@ func _process(delta: float) -> void:
 		$CollisionShape2D.disabled = true
 		freeze = true
 		add_child(a)
+	elif $Kill.has_overlapping_areas() and alive and Global.Player_size < 1:
+		$AudioStreamPlayer2D.play()

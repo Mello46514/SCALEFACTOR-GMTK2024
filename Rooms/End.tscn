@@ -1,15 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://dudkugvfvow35"]
+[gd_scene load_steps=5 format=3 uid="uid://dudkugvfvow35"]
 
 [ext_resource type="Script" path="res://Rooms/end.gd" id="1_76xv0"]
-[ext_resource type="PackedScene" uid="uid://6mvlvkl4bi35" path="res://uncommon/Test.tscn" id="2_8e0i6"]
+[ext_resource type="PackedScene" uid="uid://6mvlvkl4bi35" path="res://uncommon/tiles.tscn" id="2_8e0i6"]
 [ext_resource type="PackedScene" uid="uid://dsnocwiw03ic3" path="res://common/door.tscn" id="3_t615q"]
+[ext_resource type="Texture2D" uid="uid://b7pam4adeyfud" path="res://sprites/Light.tres" id="4_rbdqu"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_76xv0")
 
 [node name="TileMap" parent="." instance=ExtResource("2_8e0i6")]
-layer_0/tile_data = PackedInt32Array(-65536, 65536, 0, -65535, 65536, 0, -65534, 65536, 0, -131070, 65536, 0, -196606, 65536, 0, -262142, 65536, 0, -262143, 65536, 0, -262144, 65536, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0)
+layer_0/tile_data = PackedInt32Array(-65536, 1, 0, -65535, 1, 0, -65534, 1, 1, -131070, 1, 1, -196606, 1, 1, -262142, 1, 1, -262143, 1, 1, -262144, 1, 1, 2, 1, 1, 1, 1, 1, 0, 1, 1, -196608, 65537, 2, -131072, 65537, 2, -196607, 65537, 2, -131071, 65537, 2)
 
 [node name="Area2D" parent="." instance=ExtResource("3_t615q")]
 position = Vector2(80, -80)
 scale = Vector2(1.76, 1.76)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(98, -170)
+scale = Vector2(3.84375, 3.84375)
+texture = ExtResource("4_rbdqu")
