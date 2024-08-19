@@ -44,8 +44,8 @@ func _physics_process(delta):
 			$CRUSH/Timer.start(.1)
 			var e = preload("res://common/pushparticles.tscn").instantiate()
 			e.emitting = true
-			e.position = $CRUSH.position
-			add_child(e)
+			e.global_position = $CRUSH.position + global_position
+			$CanvasLayer.add_child(e)
 			$CRUSH/CollisionShape2D.disabled = false
 			$smack.play()
 		if $CRUSH.position.x == 0:

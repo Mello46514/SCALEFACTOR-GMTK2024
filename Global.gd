@@ -8,6 +8,7 @@ extends Node
 
 # variables
 @export var paused:bool = false
+var check:Vector2 = Vector2.ZERO
 
 #settings
 var sound = 100

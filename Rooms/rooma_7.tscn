@@ -45,7 +45,7 @@ position = Vector2(81.2, -222.2)
 scale = Vector2(0.2, 0.2)
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(720, 648)
+position = Vector2(720, 640)
 scale = Vector2(5, 5)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

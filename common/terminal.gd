@@ -34,14 +34,12 @@ func term(a: String):
 	if a == "--options -help\n":
 		var f2 = FileAccess.open("res://options -help.txt", FileAccess.READ)
 		printtt(f2.get_as_text())
-	if a == "--options fullscreen 1\n" or a == "--options fullscreen 0\n":
+	if a == "--fullscreen 1\n" or a == "--fullscreen 0\n":
 		save_dicta = {"fullscreen" : int(a)}
 		if int(a) == 1:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		if int(a) == 0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	if a == "--options sound\n":
-		save_dicta = {"sound" : int(a)}
 
 	if a == "--quit\n":
 		Global.paused = false

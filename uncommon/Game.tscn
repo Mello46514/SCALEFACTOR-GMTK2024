@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://csdsbylfh0bb"]
+[gd_scene load_steps=5 format=3 uid="uid://csdsbylfh0bb"]
 
 [ext_resource type="Script" path="res://uncommon/game.gd" id="1_uv0m1"]
 [ext_resource type="PackedScene" uid="uid://6mvlvkl4bi35" path="res://uncommon/tiles.tscn" id="1_yl8tr"]
 [ext_resource type="PackedScene" uid="uid://conc0j3mmkrys" path="res://common/Player.tscn" id="2_2cksb"]
+[ext_resource type="AudioStream" uid="uid://cw2uoukrr0pg6" path="res://sounds/Track 1.wav" id="4_ju6j4"]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_uv0m1")
@@ -18,3 +19,10 @@ position = Vector2(127, 0)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ju6j4")
+volume_db = -3.27
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

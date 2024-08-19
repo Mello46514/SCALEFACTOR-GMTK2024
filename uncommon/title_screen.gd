@@ -41,3 +41,12 @@ func _on_button_2_mouse_entered() -> void:
 
 func _on_button_3_mouse_entered() -> void:
 	$AudioStreamPlayer.play()
+
+
+func _on_audio_stream_player_2_finished() -> void:
+	$AudioStreamPlayer2.play()
+
+
+func _on_button_3_pressed() -> void:
+	get_tree().queue_delete(self)
+	add_sibling(preload("res://uncommon/Toutorial.tscn").instantiate())
