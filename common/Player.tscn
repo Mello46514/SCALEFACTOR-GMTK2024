@@ -265,7 +265,7 @@ size = Vector2(31.46, 384)
 size = Vector2(30.92, 129)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kye2"]
-size = Vector2(32, 110)
+size = Vector2(18.9641, 110)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqpj3"]
 size = Vector2(84, 128)
@@ -375,7 +375,8 @@ collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DIE"]
-position = Vector2(0, -55)
+position = Vector2(0, -58)
+scale = Vector2(2.10925, 1.04771)
 shape = SubResource("RectangleShape2D_6kye2")
 
 [node name="CRUSH" type="Area2D" parent="."]

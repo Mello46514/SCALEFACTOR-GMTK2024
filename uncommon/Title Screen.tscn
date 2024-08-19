@@ -123,6 +123,40 @@ offset_right = 213.0
 offset_bottom = 23.0
 text = "Build no. GMTK2024_Rel 1.0"
 
+[node name="Label3" type="Label" parent="CanvasLayer"]
+offset_top = 21.0
+offset_right = 213.0
+offset_bottom = 44.0
+text = "Made by Mell0_64"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 545.0
+offset_right = 244.0
+offset_bottom = 646.0
+text = "Music used:
+\"Rock thing\" by Cero (for finale)
+
+licenced under "
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Label2"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 53.0
+offset_right = 179.0
+offset_bottom = 93.0
+text = "youtu.be/-W52cDdeAuI"
+uri = "youtu.be/-W52cDdeAuI"
+
+[node name="LinkButton2" type="LinkButton" parent="CanvasLayer/Label2"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 78.0
+offset_right = 414.0
+offset_bottom = 118.0
+text = "creativecommons.org/licenses/by/4.0/"
+uri = "creativecommons.org/licenses/by/4.0/"
+
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_3wxm5")
 volume_db = -9.657

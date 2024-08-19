@@ -32,12 +32,14 @@ theme = ExtResource("1_pcv0a")
 text = "jump over the spikes"
 
 [node name="Label5" type="Label" parent="."]
-offset_left = 5552.0
-offset_top = -509.0
-offset_right = 6022.0
-offset_bottom = -464.0
+offset_left = 5556.0
+offset_top = -609.0
+offset_right = 6026.0
+offset_bottom = -372.0
 theme = ExtResource("1_pcv0a")
-text = "if your size is below 1, then 
+text = "press \"C\" or \"K\" to attack
+
+if your size is below 1, then 
 you wont be able to break 
 boxes."
 
@@ -87,12 +89,12 @@ text = "Press \"E\" or \"X\" to go through doors,
 this progresses you to the next floor.
 Good Luck!"
 
+[node name="Area2D2" parent="." instance=ExtResource("6_tr262")]
+position = Vector2(4409, 557)
+scale = Vector2(1.66, 1.66)
+
 [node name="Player" parent="." instance=ExtResource("4_tncy5")]
 position = Vector2(49, -6)
 
 [node name="Box" parent="." instance=ExtResource("5_nvn5v")]
 position = Vector2(6070, -396)
-
-[node name="Area2D2" parent="." instance=ExtResource("6_tr262")]
-position = Vector2(4409, 557)
-scale = Vector2(1.66, 1.66)

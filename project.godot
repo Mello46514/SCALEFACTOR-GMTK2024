@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="gmtk2024"
+config/name="SCALE FACTOR | GMTK 2024"
 config/description="my game for gmtk 2024"
 config/version="Pre-GMTK_BFin - 05"
 run/main_scene="res://uncommon/Title Screen.tscn"

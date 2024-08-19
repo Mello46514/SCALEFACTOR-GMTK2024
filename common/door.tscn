@@ -1,13 +1,68 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsnocwiw03ic3"]
+[gd_scene load_steps=9 format=3 uid="uid://dsnocwiw03ic3"]
 
-[ext_resource type="Texture2D" uid="uid://dvqorw6yem4ll" path="res://sprites/door.png" id="1_4f3yt"]
+[ext_resource type="Script" path="res://common/door.gd" id="1_65jhx"]
+[ext_resource type="Texture2D" uid="uid://drx2eis25m3yf" path="res://sprites/door-Sheet.png" id="1_k03b1"]
+[ext_resource type="AudioStream" uid="uid://dr5luje0shy2" path="res://sounds/biff.wav" id="3_xjwx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22jf7"]
 size = Vector2(54, 90)
 
+[sub_resource type="Animation" id="Animation_760fr"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_1hkk8"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_40r6d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e6ymj"]
+_data = {
+"RESET": SubResource("Animation_40r6d"),
+"close": SubResource("Animation_1hkk8"),
+"open": SubResource("Animation_760fr")
+}
+
 [node name="Area2D" type="Area2D"]
 collision_layer = 128
 collision_mask = 128
+script = ExtResource("1_65jhx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -45)
@@ -16,5 +71,17 @@ shape = SubResource("RectangleShape2D_22jf7")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -45)
 scale = Vector2(2.8125, 2.8125)
-texture = ExtResource("1_4f3yt")
+texture = ExtResource("1_k03b1")
 offset = Vector2(0.5, 0)
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e6ymj")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xjwx7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
