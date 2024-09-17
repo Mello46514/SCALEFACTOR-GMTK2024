@@ -1,1 +1,1 @@
-if you wannna steal code or mod the game, you can!
+if you wannna (borrow) code or mod the game, you can!
