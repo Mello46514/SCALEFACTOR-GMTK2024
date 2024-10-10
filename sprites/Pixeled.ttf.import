@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/Pixeled.ttf-c2390ef83bd613ea4b456dcb9742cd3f.
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
-disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48

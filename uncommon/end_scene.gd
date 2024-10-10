@@ -7,7 +7,7 @@ func _physics_process(delta: float) -> void:
 	$AudioStreamPlayer.stream_paused = Global.paused
 	$AudioStreamPlayer2.stream_paused = Global.paused
 	$Timer.paused = Global.paused
-	$CanvasLayer/Label.text = str($Timer.time_left) + " seconds left..."
+	$CanvasLayer/Label.text = str(roundi($Timer.time_left)) + " seconds left..."
 	if Input.is_action_just_pressed("ESC") and Global.paused == false: 
 		Global.paused = true
 		add_child(preload("res://common/Pause Screen.tscn").instantiate())
